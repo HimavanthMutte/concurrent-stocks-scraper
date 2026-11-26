@@ -8,7 +8,7 @@ class YahooFinancePriceWorker(threading.Thread):
     base_url = "https://finance.yahoo.com/quote/"
 
     def __init__(self,symbol):
-        super().__init__()
+        super().__init__(daemon=False)
         self.symbol = symbol 
         self.url = f"{self.base_url}{self.symbol}"
 

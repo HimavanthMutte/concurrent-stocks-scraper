@@ -19,7 +19,10 @@ class WikiWorker():
                   yield symbol
 
     def get_sp_500_companies(self):
-        response = requests.get(self.url)
+        headers = {
+        "User-Agent": "StockPriceScraper/1.0 (educational project)"
+        }
+        response = requests.get(self.url,headers=headers)
         if (response.status_code!=200):
             print("Couldn't get entries")
             return []
